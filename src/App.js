@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import General from './General';
+import Education from './Education';
+import Experience from './Experience';
 
 function App() {
+const handleSubmit = (section,data) => {
+  console.log('Submitted ${section}', data)
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>My CV</h1>
+      <General onSubmit={(data) => handleSubmit('General Info', data)} />
+      <Education onSubmit={(data) => handleSubmit('Educational Experience', data)} />
+      <Experience onSubmit={(data) => handleSubmit('Practical Experience', data)} />
     </div>
   );
 }
